@@ -1,0 +1,18 @@
+# This is a generated file. Not intended for manual editing.
+services:
+  api:
+    build:
+      context: "/Users/genady/dev/dotnet/Audity"
+      dockerfile: "AudityApi/Dockerfile"
+      target: "base"
+    command: []
+    entrypoint:
+    - "dotnet"
+    - "/app/bin/Debug/net7.0/AudityApi.dll"
+    environment:
+      ASPNETCORE_ENVIRONMENT: "Development"
+    image: "audityapi:dev"
+    ports: []
+    volumes:
+    - "/Users/genady/dev/dotnet/Audity/AudityApi:/app:rw"
+    working_dir: "/app"

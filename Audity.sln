@@ -1,0 +1,63 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain", "Domain\Domain.csproj", "{B293A95D-292C-4366-A587-040AA0836BE2}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{A3A55905-D87F-41FD-9D34-39FE76000153}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain.UnitTests", "Domain.UnitTests\Domain.UnitTests.csproj", "{20220607-4289-4A17-8992-B84C3E65EE4C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{019E5DA1-965C-4593-9126-57EEB66516D2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Application", "Application\Application.csproj", "{801CBB17-B4FA-49B1-ADB2-4EC81F3F2CA2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infrastructure", "Infrastructure\Infrastructure.csproj", "{1184372A-34F1-4273-8E24-7064604D0009}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AudityApi", "AudityApi\AudityApi.csproj", "{45A20BD3-3B3F-4891-8E52-75859888AF71}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Application.UnitTests", "Application.UnitTests\Application.UnitTests.csproj", "{88B064CD-3503-43BE-A362-C77850FAAC5B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{C1ADFD6B-61E4-4F14-873C-AED9D01D2DE4}"
+	ProjectSection(SolutionItems) = preProject
+		docker-compose.yml = docker-compose.yml
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B293A95D-292C-4366-A587-040AA0836BE2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B293A95D-292C-4366-A587-040AA0836BE2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B293A95D-292C-4366-A587-040AA0836BE2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B293A95D-292C-4366-A587-040AA0836BE2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{20220607-4289-4A17-8992-B84C3E65EE4C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{20220607-4289-4A17-8992-B84C3E65EE4C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{20220607-4289-4A17-8992-B84C3E65EE4C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{20220607-4289-4A17-8992-B84C3E65EE4C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{801CBB17-B4FA-49B1-ADB2-4EC81F3F2CA2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{801CBB17-B4FA-49B1-ADB2-4EC81F3F2CA2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{801CBB17-B4FA-49B1-ADB2-4EC81F3F2CA2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{801CBB17-B4FA-49B1-ADB2-4EC81F3F2CA2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1184372A-34F1-4273-8E24-7064604D0009}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1184372A-34F1-4273-8E24-7064604D0009}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1184372A-34F1-4273-8E24-7064604D0009}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1184372A-34F1-4273-8E24-7064604D0009}.Release|Any CPU.Build.0 = Release|Any CPU
+		{45A20BD3-3B3F-4891-8E52-75859888AF71}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{45A20BD3-3B3F-4891-8E52-75859888AF71}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{45A20BD3-3B3F-4891-8E52-75859888AF71}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{45A20BD3-3B3F-4891-8E52-75859888AF71}.Release|Any CPU.Build.0 = Release|Any CPU
+		{88B064CD-3503-43BE-A362-C77850FAAC5B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{88B064CD-3503-43BE-A362-C77850FAAC5B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{88B064CD-3503-43BE-A362-C77850FAAC5B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{88B064CD-3503-43BE-A362-C77850FAAC5B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{B293A95D-292C-4366-A587-040AA0836BE2} = {A3A55905-D87F-41FD-9D34-39FE76000153}
+		{20220607-4289-4A17-8992-B84C3E65EE4C} = {019E5DA1-965C-4593-9126-57EEB66516D2}
+		{801CBB17-B4FA-49B1-ADB2-4EC81F3F2CA2} = {A3A55905-D87F-41FD-9D34-39FE76000153}
+		{1184372A-34F1-4273-8E24-7064604D0009} = {A3A55905-D87F-41FD-9D34-39FE76000153}
+		{45A20BD3-3B3F-4891-8E52-75859888AF71} = {A3A55905-D87F-41FD-9D34-39FE76000153}
+		{88B064CD-3503-43BE-A362-C77850FAAC5B} = {019E5DA1-965C-4593-9126-57EEB66516D2}
+	EndGlobalSection
+EndGlobal
