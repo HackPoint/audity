@@ -3,22 +3,30 @@
     image: postgres:latest
     restart: always
     environment:
-      - POSTGRES_USER=genady
+      - POSTGRES_DB=akcs_v2
+      - POSTGRES_USER=akcs_v2
       - POSTGRES_PASSWORD=Aa12345!@#
+      - POSTGRES_HOST=127.0.0.1
+      - POSTGRES_PORT=5432
+    healthcheck:
+      test: /usr/bin/pg_isready
+      interval: 5s
+      timeout: 10s
+      retries: 120
     ports:
       - '5432:5432'
     volumes:
-      - db:/var/lib/postgresql/data
+      - ./.containers/db:/var/lib/postgresql/data
   api:
-    image: audityapi
+    image: audity
     build:
       context: .
       dockerfile: AudityApi/Dockerfile
     ports:
       - 8081:5000
     depends_on:
-      - db
+      db:
+        condition: service_healthy
 volumes:
   db:
     driver: local
-  

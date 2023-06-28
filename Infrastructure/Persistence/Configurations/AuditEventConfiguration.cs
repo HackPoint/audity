@@ -5,7 +5,6 @@ using Domain.Entities;
 using Infrastructure.Common.JsonConverters;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using Newtonsoft.Json;
 using JsonSerializer = System.Text.Json.JsonSerializer;
 
 namespace Infrastructure.Persistence.Configurations;
@@ -38,6 +37,10 @@ public class AuditEventConfiguration : IEntityTypeConfiguration<AuditEvent> {
 
         builder.Property(cfg => cfg.DcaId)
             .HasColumnName("dca_id")
+            .IsRequired();
+        
+        builder.Property(cfg => cfg.DcaName)
+            .HasColumnName("dca_name")
             .IsRequired();
 
         builder.Property<string>(x => x.PrevState).HasConversion(

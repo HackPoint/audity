@@ -1,5 +1,4 @@
 using System.Reflection;
-using System.Text.Json;
 using Application.Interfaces;
 using Domain.Entities;
 using MediatR;
@@ -11,7 +10,7 @@ public class ApplicationDbContext : DbContext, IApplicationDbContext {
     private readonly IMediator _mediator;
 
     public DbSet<AuditEvent> AuditEvents => Set<AuditEvent>();
-    
+
     public ApplicationDbContext(
         DbContextOptions<ApplicationDbContext> options,
         IMediator mediator

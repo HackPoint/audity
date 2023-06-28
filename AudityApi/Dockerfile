@@ -7,7 +7,10 @@ EXPOSE 443
 ENV ASPNETCORE_URLS=http://+:5000 \
     ASPNETCORE_ENVIRONMENT=Production \
     CHROME_BIN=/usr/bin/google-chrome
-    
+ 
+ENV DOTNET_EnableDiagnostics=0
+ENV ASPNETCORE_ENVIRONMENT=Production
+
 FROM mcr.microsoft.com/dotnet/sdk:7.0 AS build
 WORKDIR /src
 COPY ["AudityApi/AudityApi.csproj", "AudityApi/"]

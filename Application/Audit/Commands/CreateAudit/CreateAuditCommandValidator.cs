@@ -10,6 +10,9 @@ public class CreateAuditCommandValidator : AbstractValidator<CreateAuditCommand>
         RuleFor(v => v.DcaId)
             .NotEmpty();
         
+        RuleFor(v => v.DcaName)
+            .NotEmpty();
+            
         RuleFor(v => v.PrevState)
             .NotEmpty();
         

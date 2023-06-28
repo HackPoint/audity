@@ -4,14 +4,24 @@ using Infrastructure;
 
 var builder = WebApplication.CreateBuilder(args);
 
+var configuration = new ConfigurationBuilder()
+    .SetBasePath(builder.Environment.ContentRootPath)
+    .AddEnvironmentVariables() 
+    .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
+    .AddJsonFile($"appsettings.{builder.Environment.EnvironmentName}.json", optional: true, reloadOnChange: true)
+    .AddEnvironmentVariables()
+    .Build();
+
 // Add services to the container.
 builder.Services
-    .AddInfrastructureServices(builder.Configuration)
+    .AddInfrastructureServices(configuration)
     .AddApplicationServices()
     .AddEndpointsApiExplorer();
 
-builder.Services.AddLogging(cfg => {
-    cfg.AddJsonConsole(opts => {
+builder.Services.AddLogging(cfg =>
+{
+    cfg.AddJsonConsole(opts =>
+    {
         opts.IncludeScopes = true;
         opts.JsonWriterOptions = new JsonWriterOptions {
             Indented = true
@@ -27,8 +37,13 @@ var app = builder.Build();
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment()) {
+    
+    
     app.UseSwagger();
     app.UseSwaggerUI();
+}
+else {
+    app.UseHsts();
 }
 
 app.UseHttpsRedirection();
