@@ -1,3 +1,4 @@
+using System.Net;
 using Application.Audit.Commands.CreateAudit;
 using Microsoft.AspNetCore.Mvc;
 
@@ -10,7 +11,9 @@ public class AuditController : ApiControllerBase {
     }
     
     [HttpPost]
-    public async Task<ActionResult<Guid>> Create(CreateAuditCommand command) {
+    [ProducesResponseType((int)HttpStatusCode.InternalServerError)]
+    [ProducesResponseType((int)HttpStatusCode.BadRequest)]
+    public async Task<ActionResult<Guid>> Create([FromBody] CreateAuditCommand command) {
         return await Mediator.Send(command);
     }
 }

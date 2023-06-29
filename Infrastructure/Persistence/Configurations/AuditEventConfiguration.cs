@@ -43,23 +43,11 @@ public class AuditEventConfiguration : IEntityTypeConfiguration<AuditEvent> {
             .HasColumnName("dca_name")
             .IsRequired();
 
-        builder.Property<string>(x => x.PrevState).HasConversion(
-                v => JsonSerializer.Serialize(v, new JsonSerializerOptions() {
-                    DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull,
-                    Converters = { new StringJsonConverter() },
-                    Encoder = JavaScriptEncoder.UnsafeRelaxedJsonEscaping
-                }),
-                v => JsonSerializer.Deserialize<string>(v, new JsonSerializerOptions() {  DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull }))
+        builder.Property<JsonElement>(x => x.PrevState)
             .HasColumnName("row_before")
             .HasColumnType("jsonb");
 
-        builder.Property<string>(x => x.CurrState).HasConversion(
-                v => JsonSerializer.Serialize(v, new JsonSerializerOptions() {
-                    DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull,
-                    Converters = { new StringJsonConverter() },
-                    Encoder = JavaScriptEncoder.UnsafeRelaxedJsonEscaping
-                }),
-                v => JsonSerializer.Deserialize<string>(v, new JsonSerializerOptions() {  DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull }))
+        builder.Property<JsonElement>(x => x.CurrState)
             .HasColumnName("row_after")
             .HasColumnType("jsonb");
     }

@@ -20,7 +20,7 @@ public static class ConfigureServices {
             string usr = EnvironmentHelper.GetValue<string>("POSTGRES_USER");
             string pwd = EnvironmentHelper.GetValue<string>("POSTGRES_PASSWORD");
             string host = EnvironmentHelper.GetValue<string>("POSTGRES_HOST");
-            string searchPath = EnvironmentHelper.GetValue<string>("SEARCH_PATH");
+            string searchPath = EnvironmentHelper.GetValue<string>("POSTGRES_SEARCH_PATH");
 
             Console.WriteLine("Environment: {0}", EnvironmentHelper.GetValue<string>("ASPNETCORE_ENVIRONMENT"));
             Console.WriteLine("DB: {0}", db);
@@ -39,12 +39,11 @@ public static class ConfigureServices {
         catch (Exception e) {
             Console.WriteLine($"DB Configuration error: {e.Message}");
             Console.WriteLine($"Configuring DefaultConnection");
-            connectionString = configuration.GetConnectionString("DefaultConnection");
+            connectionString = 
+                configuration["ConnectionStrings:localhost"];
             services.AddDbContext<ApplicationDbContext>(opts =>
                 opts.UseNpgsql($"{connectionString};"));
         }
-
-
         Console.WriteLine($"Connection String: {connectionString}");
         services.AddScoped<IApplicationDbContext>(provider => provider.GetRequiredService<ApplicationDbContext>());
         return services;
